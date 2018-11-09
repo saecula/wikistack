@@ -1,5 +1,5 @@
-const html = require("html-template-tag");
-const layout = require("./layout");
+const html = require('html-template-tag');
+const layout = require('./layout');
 
 module.exports = (users) => layout(html`
   <h3>Users</h3>

@@ -10,10 +10,10 @@ const models = require('./models');
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));ç
 
 app.get('/', (req, res) => {
-  res.send(layout(''));
+  res.redirect('/wiki');
 });
 
 db.authenticate().then(() => {
