@@ -7,8 +7,6 @@ const models = require('./models');
 const wikiRouter = require('./routes/wiki');
 const userRouter = require('./routes/user');
 
-// HELLO KATHLEEN
-
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
@@ -17,7 +15,7 @@ app.use('/wiki', wikiRouter);
 app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
-  res.send(layout(''));
+  res.redirect('/wiki');
 });
 
 db.authenticate().then(() => {
