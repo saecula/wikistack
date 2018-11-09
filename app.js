@@ -5,36 +5,33 @@ const layout = require('./views/layout');
 const { db } = require('./models');
 const models = require('./models');
 
+// HELLO KATHLEEN
+
 app.use(morgan('dev'));
-app.use(express.static(__dirname + "/public"));
-app.use(express.static(__dirname + "/views"));
-app.use(express.urlencoded({extended: false}));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-    res.send(layout(''));
-})
+  res.send(layout(''));
+});
 
-
-
-
-db.authenticate().
-then(() => {
+db.authenticate().then(() => {
   console.log('connected to the database');
-})
+});
 
 const PORT = 1337;
 
 const init = async () => {
-    await models.User.sync({force: true})
-    await models.Page.sync({force: true})
+  await models.User.sync({ force: true });
+  await models.Page.sync({ force: true });
 
-    app.listen(PORT, () => {
-        console.log(`Server is listening on port ${PORT}`)
-    })
-}
- 
+  app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+  });
+};
+
 init();
 // app.listen(PORT, () => {
-    //  console.log(`App listening in port ${PORT}`);
-    // });
-    
+//  console.log(`App listening in port ${PORT}`);
+// });
